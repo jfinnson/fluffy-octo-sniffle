@@ -4,11 +4,6 @@ node_js:
 script:
 - echo "Hello World"
 
-before_install:
-  - pip install --user awscli
-  - export PATH=$PATH:$HOME/.local/bin
-after_success: bash deploy.sh
-
 before_deploy:
   - zip -r latest *
   - mkdir -p dpl_cd_upload
