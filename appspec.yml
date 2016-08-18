@@ -1,12 +1,18 @@
 version: 0.0
 os: linux
 files:
- - source: /
-   destination: /nodeserver
+  - source: /index.html
+    destination: /var/www/html/
 hooks:
-  Install:
-    - location: setup.sh
-      timeout: 3600
-  ApplicationStart:
-    - location: start.sh
-      timeout: 3600
+  BeforeInstall:
+    - location: scripts/install_dependencies
+      timeout: 300
+      runas: root
+    - location: scripts/start_server
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: scripts/stop_server
+      timeout: 300
+      runas: root
+
