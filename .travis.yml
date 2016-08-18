@@ -3,7 +3,7 @@ node_js:
 - '6'
 script:
 - echo "Hello World"
-
+    
 before_deploy:
   - zip -r latest *
   - mkdir -p dpl_cd_upload
@@ -18,15 +18,6 @@ deploy:
     local_dir: dpl_cd_upload
     on: &2
       branch: master
-  - provider: codedeploy
-    access_key_id: AKIAI35KTMHY3XQBNQZA
-    secret_access_key: *1
-    bucket: fluffy-octo-sniffle-codedeploy
-    on: *2
-    key: latest.zip
-    bundle_type: zip
-    application: DemoApplication
-    deployment_group: DemoFleet
 env:
   global:
   - secure: X4nybRORFxPag34T4fL7l+uPRsHD8bQ2YWbqQD7gDDYyQCkEnkdcHJent01Tyy7u7oAo74nzM5mY7Uuo6HX8GKQq09P+Z4L2fk3HImtdH1Q8LgLhE2KH78WwMH+XAZFINmzkRSf70hvyRVWR5w8sn+A8CmD5lrVvw95o7ErkHmq6Y3dApxmyC06V6X7mTaiSoqHdZlL337BRiAGSqw6NKlsBGeSnMkMxoHnNrLdjDR2hjXwqr01tHLr4mDpyPjEtDMeG3uNdcUSdzGNNPEs7thSFpa2sqSviHtN5hDCDGkdEufu5fblzYbTgPZwA8BkehwEZeN//Rtbh54Recf8J+CRYsVbjn+HMg5/AEHi/zqIb3dHw+eWJTkap81/u1c6RDV8fb9qWLy9FT2wPVP8JbsXTUPIdao3FessY4B72oFJeCb8vhjwwmmm1AQEPD6CNV7R94hf6YajAo13o/BYGYxO4WwiV9Mrgp9vTZ9te3woOtaSvwJxSF8keZ5FvTsfloCj4m7y2GrJQ+ivcHrvFv5FO2148a3Awhs7A/KnWUEo9ROdjj9vahM4UomP9IAFa7vwoJ32WxWuszqH+QaTPmAZZf2QVN0i5AO/ZmPGS21mSeFDlSYwRHFTct3SHyaUkCpfQHuYjsFGVhLJGtn88ne70SSycLvwozIaw1L9Y1+I=
