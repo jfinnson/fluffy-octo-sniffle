@@ -3,22 +3,28 @@ node_js:
 - '6'
 script:
 - echo "Hello World"
-    
 before_deploy:
-  - zip -r latest *
-  - mkdir -p dpl_cd_upload
-  - mv latest.zip dpl_cd_upload/latest.zip
-  
+- mkdir -p dpl_cd_upload
+- mv '' dpl_cd_upload/''
 deploy:
-  - provider: s3
-    access_key_id: AKIAI35KTMHY3XQBNQZA
-    secret_access_key: &1
-      secure: O47J8j2tgCudmavDx/XDMEQcPKen2a0YRBL6AojMEwxhs2hhAOYPIjUKUCy0u/69NurCKLpt6Mw54XkL3zxMzV9C3QGc26ryYidl8+WExK8k1v2v9Y7cmhTIUoyWPsrJG8ft3O98cYKbJwZR1/eQDgcr2u9FMi3kIX3f5+U6JJntj9zzr621VNpHn1xNkQJdaWsLo1sKTMySzmN1+L4YJcyw6+NvD25NBkq78rPCBJfBmPmrKCRKsrlVbeQErXapEf+GKBC7DOK9d9maqfpFJxANrSsx7z+XmM1cV0Tl/KvV3rk/J5SWIZXRE6FxgPY4Hfen9QyGIB7KMXoFW98tvJBvsB4tEOOX2k/GYme3ws/J5WH+U0FLiz9gAOg/ReXBxAEj0Y6rKYdDLZJv0adi7CgBIsX6jGjS5/s1ilo5Fje88Zgg0DPyn8MMKwWlt6DX2fqlMECwQ7ZJ5EVdaw/128xfxo2gPOuxCTT51THdMutW+PA5vB2Z7BRcUWOlCue6PIt8vfxiIhnWdL6dix5vwhn3Az0rcz/As7Fo+/I/HG3CTr6FTz/Zfy+ozhvkWfsw28sdamVV1+bNxeaWoML+if3c+7berQEOM5k084HNA/u7A5w9O+C0gPfSbcPqRPrD4tl6qEruN0TDgfvdAIqJtByaHeGZtQb1pmEwSZGvd8g=
-    bucket: fluffy-octo-sniffle-codedeploy
-    local_dir: dpl_cd_upload
-    skip_cleanup: true
-    on: &2
-      branch: master
+- provider: s3
+  access_key_id: AKIAI35KTMHY3XQBNQZA
+  secret_access_key: &1
+    secure: taLW7fJG/H1yW275elaqxFcO1Hvk6z436xRpRdPfGMACC7ExmU2aDjCQWqwp+DAhvBu7xQRHJdklytWo1PbWA7mi4QJSldqhsfH9Wx3KQ3v4QbfsWfvVNRfIWRZpszH7J25R3hItddnks8maKOOL1GygVcD8G9BFA3UCd8Bw7D7btUMz8eRfXUUYCHeu5922x5C5s+Xt7lfYnft5YuiMfa7qMy7s63cGq9l+/b4frkje4Q71YGqDdUStqQk50DHFd+wmDfY/6LLMAX2/iQPLm0gWInHs1O58hIUnu4GCqUj2N6JVb1gfkiJG6COHRa8ZyJ0Mu6vemB/zSdrNH0kyblO6eCpkUnxeq7zZru7O/29K+AWmboi6yky/C2IroGXOhOdTA76dTQ6N5XfMqobQE3vfRo4FD82IP9zZyeOfdUWifKbuoo36MvGwj36Wbl4TAog0LclxgUmW8JKELSUg8d103eOlT3W5WYXYQj9xR0I3SdpGJYzvEN1qRtOnJZcIhbHkgJZn+9tauPxlVITID06b/11iV+GDhLm2Qcs3qxR04hw43cbWCVzhTm39AiKdnQEO2f0cwzqHZ7XwsoKDHc5tozdAOtE1DTHhX5cI8TAir5/aJdvMlzh2cj0VoO6qPvxQp58niv/d3v0wZgztJ9oRsjD4XYOP8zgbdvY00AU=
+  local_dir: dpl_cd_upload
+  skip_cleanup: true
+  on: &2
+    repo: jfinnson/fluffy-octo-sniffle
+  bucket: fluffy-octo-sniffle-codedeploy
+- provider: codedeploy
+  access_key_id: AKIAI35KTMHY3XQBNQZA
+  secret_access_key: *1
+  bucket: fluffy-octo-sniffle-codedeploy
+  key: ''
+  bundle_type: ''
+  application: DemoApplication
+  deployment_group: DemoFleet
+  on: *2
 env:
   global:
   - secure: X4nybRORFxPag34T4fL7l+uPRsHD8bQ2YWbqQD7gDDYyQCkEnkdcHJent01Tyy7u7oAo74nzM5mY7Uuo6HX8GKQq09P+Z4L2fk3HImtdH1Q8LgLhE2KH78WwMH+XAZFINmzkRSf70hvyRVWR5w8sn+A8CmD5lrVvw95o7ErkHmq6Y3dApxmyC06V6X7mTaiSoqHdZlL337BRiAGSqw6NKlsBGeSnMkMxoHnNrLdjDR2hjXwqr01tHLr4mDpyPjEtDMeG3uNdcUSdzGNNPEs7thSFpa2sqSviHtN5hDCDGkdEufu5fblzYbTgPZwA8BkehwEZeN//Rtbh54Recf8J+CRYsVbjn+HMg5/AEHi/zqIb3dHw+eWJTkap81/u1c6RDV8fb9qWLy9FT2wPVP8JbsXTUPIdao3FessY4B72oFJeCb8vhjwwmmm1AQEPD6CNV7R94hf6YajAo13o/BYGYxO4WwiV9Mrgp9vTZ9te3woOtaSvwJxSF8keZ5FvTsfloCj4m7y2GrJQ+ivcHrvFv5FO2148a3Awhs7A/KnWUEo9ROdjj9vahM4UomP9IAFa7vwoJ32WxWuszqH+QaTPmAZZf2QVN0i5AO/ZmPGS21mSeFDlSYwRHFTct3SHyaUkCpfQHuYjsFGVhLJGtn88ne70SSycLvwozIaw1L9Y1+I=
