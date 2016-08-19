@@ -1,3 +1,4 @@
 #!/bin/bash test
+npm install -g forever
 forever stop -uid "server"
 
