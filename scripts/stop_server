@@ -1,4 +1,3 @@
 #!/bin/bash test
 forever list
-forever stop /app.js
 
