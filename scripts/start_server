@@ -1,4 +1,4 @@
 #!/bin/bash
-ls
+npm install -g forever
 forever start --uid "server" /app.js
 
