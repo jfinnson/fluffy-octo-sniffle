@@ -1,4 +1,4 @@
 #!/bin/bash
 ls
-forever start /app.js
+forever start --uid "server" /app.js
 
