@@ -16,6 +16,7 @@ deploy:
       secure: O47J8j2tgCudmavDx/XDMEQcPKen2a0YRBL6AojMEwxhs2hhAOYPIjUKUCy0u/69NurCKLpt6Mw54XkL3zxMzV9C3QGc26ryYidl8+WExK8k1v2v9Y7cmhTIUoyWPsrJG8ft3O98cYKbJwZR1/eQDgcr2u9FMi3kIX3f5+U6JJntj9zzr621VNpHn1xNkQJdaWsLo1sKTMySzmN1+L4YJcyw6+NvD25NBkq78rPCBJfBmPmrKCRKsrlVbeQErXapEf+GKBC7DOK9d9maqfpFJxANrSsx7z+XmM1cV0Tl/KvV3rk/J5SWIZXRE6FxgPY4Hfen9QyGIB7KMXoFW98tvJBvsB4tEOOX2k/GYme3ws/J5WH+U0FLiz9gAOg/ReXBxAEj0Y6rKYdDLZJv0adi7CgBIsX6jGjS5/s1ilo5Fje88Zgg0DPyn8MMKwWlt6DX2fqlMECwQ7ZJ5EVdaw/128xfxo2gPOuxCTT51THdMutW+PA5vB2Z7BRcUWOlCue6PIt8vfxiIhnWdL6dix5vwhn3Az0rcz/As7Fo+/I/HG3CTr6FTz/Zfy+ozhvkWfsw28sdamVV1+bNxeaWoML+if3c+7berQEOM5k084HNA/u7A5w9O+C0gPfSbcPqRPrD4tl6qEruN0TDgfvdAIqJtByaHeGZtQb1pmEwSZGvd8g=
     bucket: fluffy-octo-sniffle-codedeploy
     local_dir: dpl_cd_upload
+    skip_cleanup: true
     on: &2
       branch: master
 env:
