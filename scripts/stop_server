@@ -1,4 +1,3 @@
 #!/bin/bash
 forever list
-forever stop "server"
-
+forever stopall
