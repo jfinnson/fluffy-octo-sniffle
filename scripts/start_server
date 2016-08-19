@@ -3,7 +3,7 @@ npm install -g forever
 echo "forever list"
 forever list
 echo "forever stop"
-forever stop server
+forever stop app.js
 echo "forever start"
-forever --uid "server" start /app.js
+forever start /app.js
 
