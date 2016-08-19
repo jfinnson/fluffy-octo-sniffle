@@ -25,6 +25,7 @@ deploy:
   bundle_type: zip
   application: DemoApplication
   deployment_group: DemoFleet
+  region: us-west-2
   on: *2
 env:
   global:
