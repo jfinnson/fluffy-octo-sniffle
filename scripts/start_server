@@ -1,5 +1,4 @@
-#!/bin/bash 
-npm install -g forever
+#!/bin/bash
 echo "forever list"
 forever list
 echo "forever stop"
