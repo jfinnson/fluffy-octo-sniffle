@@ -1,5 +1,5 @@
-#!/bin/bash
-npm install -g forever
+#!/bin/bash 
 forever list
+forever stop --uid "server"
 forever start --uid "server" /app.js
 
