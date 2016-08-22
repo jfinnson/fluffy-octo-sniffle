@@ -2,7 +2,7 @@ language: node_js
 node_js:
 - '6'
 script:
-- echo "NodeJS Seed Travis tests and aws deploy"
+- echo "NodeJS Seed Travis tests and AWS deploy"
 deploy:
 - provider: codedeploy
   access_key_id: AKIAI35KTMHY3XQBNQZA
