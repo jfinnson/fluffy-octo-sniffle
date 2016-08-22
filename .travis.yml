@@ -11,7 +11,7 @@ deploy:
   skip_cleanup: true
   region: us-west-2
   application: NodejsSeed
-  deployment_group: NodejsSeedFleet-3
+  deployment_group: NodejsSeedFleet
   revision_type: github
   on: &2
     repo: jfinnson/nodejs-seed
